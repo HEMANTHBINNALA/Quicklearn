@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exam Results Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #00c9ff, #92fe9d);
+      color: white;
+    }
+
+    header {
+      background-color: #004d40;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .card .value {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card .label {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .blue { background-color: #2196f3; }
+    .purple { background-color: #9c27b0; }
+    .red { background-color: #f44336; }
+    .green { background-color: #4caf50; }
+    .orange { background-color: #ff9800; }
+
+    .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>📊 EXAM RESULTS DASHBOARD</header>
+
+  <div class="dashboard">
+    <div class="card blue">
+      <div class="icon">👥</div>
+      <h2>Total Students</h2>
+      <div class="value">80</div>
+      <div class="label">Students List</div>
+    </div>
+
+    <div class="card purple">
+      <div class="icon">📄</div>
+      <h2>Total Exams</h2>
+      <div class="value">5</div>
+      <div class="label">Exam List</div>
+    </div>
+
+    <div class="card red">
+      <div class="icon">❓</div>
+      <h2>Total Questions</h2>
+      <div class="value">120</div>
+      <div class="label">Question List</div>
+    </div>
+
+    <div class="card green">
+      <div class="icon">📚</div>
+      <h2>Total Subjects</h2>
+      <div class="value">3</div>
+      <div class="label">Subject List</div>
+    </div>
+
+    <div class="card orange">
+      <div class="icon">⭐</div>
+      <h2>Results</h2>
+      <div class="value">320</div>
+      <div class="label">Exam Results</div>
+    </div>
+  </div>
+</body>
+</html>

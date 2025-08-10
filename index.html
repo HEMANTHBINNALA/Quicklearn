@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quicklearn - Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: crimson;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo a {
+      font-size: 32px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+    }
+
+    .nav-links li {
+      list-style: none;
+      margin-left: 20px;
+    }
+
+    .nav-links li a {
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: yellow;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: crimson;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Slider */
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 80vh;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slideLoop 30s linear infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 80vh;
+      object-fit: cover;
+      flex-shrink: 0;
+      max-height: 100%;
+      transition: transform 9s ease-in-out;
+    }
+
+    @keyframes slideLoop {
+      0% { transform: translateX(0%); }
+      33.33% { transform: translateX(-100%); }
+      66.66% { transform: translateX(-200%); }
+      100% { transform: translateX(0%); }
+    }
+
+    /* Stable Login Icon */
+    .login-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      background: white;
+      border-radius: 50%;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .login-icon:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .login-icon a {
+      text-decoration: none;
+      color: crimson;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* Welcome Section */
+    .welcome {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+    }
+
+    .welcome h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .welcome p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: auto;
+      color: #555;
+    }
+
+    .cta-button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      background: crimson;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 2s;
+    }
+
+    .cta-button:hover {
+      background: darkred;
+    }
+
+    /* Feature Cards */
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 50px 20px;
+      background: #fff;
+    }
+
+    .card {
+      background: #ffe4e1;
+      padding: 30px;
+      border-radius: 12px;
+      width: 280px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 2s;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: crimson;
+    }
+
+    .card p {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">Quicklearn</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="test.html">Test</a></li>
+      <li><a href="results.html">Result</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- Image Slider -->
+  <div class="slider">
+    <div class="login-icon">
+      <a href="login.html">Login</a>
+    </div>
+    <div class="slides">
+      <img src="images/OIP.webp" alt="Slide 1" />
+      <img src="images/Examinations-1.jpg" alt="Slide 2" />
+      <img src="images/istockphoto-1456749194-170667a.jpg" alt="Slide 3" />
+    </div>
+  </div>
+
+  <!-- Welcome Section -->
+  <section class="welcome">
+    <h1>Welcome to Quicklearn</h1>
+    <p>
+      Your one-stop platform for smart learning, quick assessments, and instant results.
+      Explore our features and take your knowledge to the next level!
+    </p>
+    <button class="cta-button" onclick="location.href='register.html'">Get Started</button>
+  </section>
+
+  <!-- Feature Cards -->
+  <section class="features">
+    <div class="card">
+      <h3>Login</h3>
+      <p>Access your personalized dashboard and track your progress.</p>
+    </div>
+    <div class="card">
+      <h3>Test</h3>
+      <p>Take interactive quizzes and sharpen your skills instantly.</p>
+    </div>
+    <div class="card">
+      <h3>Results</h3>
+      <p>View your performance and get detailed feedback anytime.</p>
+    </div>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>

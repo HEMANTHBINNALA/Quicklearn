@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Quicklearn</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ff6a00, #ee0979);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .register-box {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px;
+      width: 400px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      color: #fff;
+    }
+
+    .register-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 26px;
+    }
+
+    .register-box input,
+    .register-box select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .register-box input::placeholder {
+      color: #e0e0e0;
+    }
+
+    .register-box button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00c9a7;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+
+    .register-box button:hover {
+      background-color: #00b38f;
+    }
+
+    .login-link {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .login-link a {
+      color: #ffeb3b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-box">
+    <h2>Create Your Account</h2>
+    <form onsubmit="registerUser(event)">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <input type="tel" placeholder="Mobile Number" required />
+      <input type="date" required />
+      <select required>
+        <option value="" disabled selected>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+      <button type="submit">Register</button>
+    </form>
+    <div class="login-link">
+      Already have an account? <a href="login.html">Login</a>
+    </div>
+  </div>
+
+  <script>
+    function registerUser(e) {
+      e.preventDefault();
+
+      const fullName = document.querySelector('input[placeholder="Full Name"]').value;
+      const email = document.querySelector('input[placeholder="Email Address"]').value;
+      const mobile = document.querySelector('input[placeholder="Mobile Number"]').value;
+      const dob = document.querySelector('input[type="date"]').value;
+      const gender = document.querySelector('select').value;
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      const userData = {
+        fullName,
+        email,
+        mobile,
+        dob,
+        gender,
+        username,
+        password
+      };
+
+      // Save to localStorage
+      localStorage.setItem("quicklearnUser", JSON.stringify(userData));
+
+      alert("Registration successful!");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
